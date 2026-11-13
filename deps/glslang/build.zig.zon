@@ -1,0 +1,16 @@
+.{
+    .name = .hex_glslang,
+    .version = "16.2.0",
+    .fingerprint = 0xee3bf529665c6cc1,
+    .minimum_zig_version = "0.17.0",
+    .dependencies = .{
+        // The revision shaderc v2026.1 pins in its DEPS file (deps/shaderc).
+        .glslang = .{
+            .url = "https://github.com/KhronosGroup/glslang/archive/f0bd0257c308b9a26562c1a30c4748a0219cc951.tar.gz",
+            .hash = "N-V-__8AAJOEnQJ6jpVmSacNhl5KtM-kYXjY0xTQHQyC65PV",
+        },
+        .spirv_tools = .{ .path = "../spirv-tools" },
+        .helpers = .{ .path = "../helpers" },
+    },
+    .paths = .{ "build.zig", "build.zig.zon" },
+}

@@ -1,0 +1,7 @@
+# Zig's build cache, install prefix, and the package copies Zig 0.17 fetches
+# next to each build.zig.zon (here and under deps/).
+.zig-cache/
+zig-out/
+zig-pkg/
+# cargo's output for Hex (CARGO_TARGET_DIR).
+/target/

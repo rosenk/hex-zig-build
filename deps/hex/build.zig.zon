@@ -1,0 +1,18 @@
+.{
+    .name = .hex,
+    .version = "3.4.0",
+    .fingerprint = 0xffd12566e677d4b8,
+    .minimum_zig_version = "0.17.0",
+    .dependencies = .{
+        .helpers = .{ .path = "../helpers" },
+        .hex = .{
+            .url = "https://github.com/anomalyco/hex/archive/8766d096eb3c98a5b1a54cb966a6daa717bc839d.tar.gz",
+            .hash = "N-V-__8AAHwrPAMMHJPV-On3_LO8WNZz7RUwzcgt8UK_ZqGT",
+        },
+        .transcribe = .{ .path = "../transcribe" },
+        .openssl = .{ .path = "../openssl" },
+        .alsa = .{ .path = "../alsa" },
+        .xkbcommon = .{ .path = "../xkbcommon" },
+    },
+    .paths = .{ "build.zig", "build.zig.zon", "windows-gnu.patch" },
+}

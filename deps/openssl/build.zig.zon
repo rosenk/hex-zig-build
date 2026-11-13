@@ -1,0 +1,13 @@
+.{
+    .name = .hex_openssl,
+    .version = "3.5.9",
+    .fingerprint = 0x9b75118db84c94d0,
+    .minimum_zig_version = "0.17.0",
+    .dependencies = .{
+        .openssl_src = .{
+            .url = "https://github.com/openssl/openssl/releases/download/openssl-3.5.9/openssl-3.5.9.tar.gz",
+            .hash = "N-V-__8AAHFs0gcqWCv38hrtl-TV8sJ7GNMci6825jYBinz2",
+        },
+    },
+    .paths = .{ "build.zig", "build.zig.zon", "openssl.pl" },
+}

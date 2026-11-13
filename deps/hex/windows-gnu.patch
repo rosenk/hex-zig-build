@@ -1,0 +1,40 @@
+Hex for x86_64-pc-windows-gnu (MinGW, as zig cc links it), built on Linux:
+only MSVC links pass /DELAYLOAD:vulkan-1.dll and delayimp (a GNU link has
+neither; there deps/vulkan's vulkan-1 loads the DLL on first use instead),
+and a build on another OS links the icon and version resource compiled
+elsewhere (HEX_WINDOWS_RES, a .res file deps/hex makes with zig rc), since
+embed_windows_resources runs only on Windows.
+
+diff --git a/build.rs b/build.rs
+index 2a2c9b2..5e40efb 100644
+--- a/build.rs
++++ b/build.rs
+@@ -44,11 +44,26 @@ fn main() {
+                         PathBuf::from(sdk).join("Lib").display()
+                     );
+                 }
+-                println!("cargo:rustc-link-arg=/DELAYLOAD:vulkan-1.dll");
+-                println!("cargo:rustc-link-lib=delayimp");
++                // MinGW (GNU) links have no /DELAYLOAD; their vulkan-1 import
++                // library must load the DLL on first use itself.
++                if std::env::var("CARGO_CFG_TARGET_ENV").as_deref() == Ok("msvc") {
++                    println!("cargo:rustc-link-arg=/DELAYLOAD:vulkan-1.dll");
++                    println!("cargo:rustc-link-lib=delayimp");
++                }
+             }
+             #[cfg(windows)]
+             embed_windows_resources();
++            // A cross build from another OS compiles the same resources
++            // itself and names the compiled .res file here.
++            #[cfg(not(windows))]
++            {
++                println!("cargo:rerun-if-env-changed=HEX_WINDOWS_RES");
++                if let Some(res) = std::env::var_os("HEX_WINDOWS_RES") {
++                    let res = PathBuf::from(res);
++                    println!("cargo:rerun-if-changed={}", res.display());
++                    println!("cargo:rustc-link-arg-bins={}", res.display());
++                }
++            }
+         }
+         return;
+     }

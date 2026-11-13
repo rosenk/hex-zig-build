@@ -1,0 +1,14 @@
+.{
+    .name = .hex_xkbcommon,
+    .version = "1.11.0",
+    .fingerprint = 0x69766bc41c4302a9,
+    .minimum_zig_version = "0.17.0",
+    .dependencies = .{
+        .helpers = .{ .path = "../helpers" },
+        .libxkbcommon = .{
+            .url = "https://github.com/xkbcommon/libxkbcommon/archive/refs/tags/xkbcommon-1.11.0.tar.gz",
+            .hash = "N-V-__8AAFRAZAD02nId1w02lyWXmN-hvo873BSh9wZDxjSN",
+        },
+    },
+    .paths = .{ "build.zig", "build.zig.zon" },
+}

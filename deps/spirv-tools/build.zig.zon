@@ -1,0 +1,16 @@
+.{
+    .name = .hex_spirv_tools,
+    .version = "2026.1.0",
+    .fingerprint = 0x2d86677284b74dce,
+    .minimum_zig_version = "0.17.0",
+    .dependencies = .{
+        // The revision shaderc v2026.1 pins in its DEPS file (deps/shaderc).
+        .spirv_tools = .{
+            .url = "https://github.com/KhronosGroup/SPIRV-Tools/archive/fbe4f3ad913c44fe8700545f8ffe35d1382b7093.tar.gz",
+            .hash = "N-V-__8AAB8WhQGf0oo8S9Xp825-t91jWDQAyYkkCzaIr-q5",
+        },
+        .spirv_headers = .{ .path = "../spirv-headers" },
+        .helpers = .{ .path = "../helpers" },
+    },
+    .paths = .{ "build.zig", "build.zig.zon" },
+}

@@ -1,0 +1,10 @@
+.{
+    .name = .hex_build,
+    .version = "0.0.0",
+    .fingerprint = 0xc064b8651e2d4a08,
+    .minimum_zig_version = "0.17.0",
+    .dependencies = .{
+        .hex = .{ .path = "deps/hex" },
+    },
+    .paths = .{ "build.zig", "build.zig.zon", "deps" },
+}

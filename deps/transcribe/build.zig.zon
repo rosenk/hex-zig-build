@@ -1,0 +1,16 @@
+.{
+    .name = .hex_transcribe,
+    .version = "0.4.1",
+    .fingerprint = 0xeddb70e93ad55ffd,
+    .minimum_zig_version = "0.17.0",
+    .dependencies = .{
+        .shaderc = .{ .path = "../shaderc" },
+        .vulkan = .{ .path = "../vulkan" },
+        .transcribe_cpp = .{
+            .url = "https://github.com/anomalyco/transcribe.cpp/archive/bcb639faa4c74a2300ba19e30360cb2355b1663a.tar.gz",
+            .hash = "N-V-__8AAPYZkgW9YBNL5xXTLoHMxgxLBo8Ecy1VbnixQMpo",
+        },
+        .spirv_headers = .{ .path = "../spirv-headers" },
+    },
+    .paths = .{ "build.zig", "build.zig.zon" },
+}

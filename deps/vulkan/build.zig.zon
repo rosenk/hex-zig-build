@@ -1,0 +1,18 @@
+.{
+    .name = .hex_vulkan,
+    .version = "1.4.341",
+    .fingerprint = 0x92b100c213e42c5e,
+    .minimum_zig_version = "0.17.0",
+    .dependencies = .{
+        .helpers = .{ .path = "../helpers" },
+        .vulkan_headers = .{
+            .url = "https://github.com/KhronosGroup/Vulkan-Headers/archive/refs/tags/v1.4.341.tar.gz",
+            .hash = "N-V-__8AABJ5QgLfX-rcpaOGlg1YXcabW-m5cl5HEKkRsi3f",
+        },
+        .vulkan_loader = .{
+            .url = "https://github.com/KhronosGroup/Vulkan-Loader/archive/refs/tags/v1.4.341.tar.gz",
+            .hash = "N-V-__8AAOXhkADAyWxcabmMXcX88rV7-XtefgeS5Ubwi3Qo",
+        },
+    },
+    .paths = .{ "build.zig", "build.zig.zon" },
+}

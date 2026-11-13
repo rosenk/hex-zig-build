@@ -1,0 +1,17 @@
+.{
+    .name = .hex_shaderc,
+    .version = "2026.1.0",
+    .fingerprint = 0xdfbcd27742666b54,
+    .minimum_zig_version = "0.17.0",
+    .dependencies = .{
+        .shaderc = .{
+            .url = "https://github.com/google/shaderc/archive/refs/tags/v2026.1.tar.gz",
+            .hash = "N-V-__8AAAh4EgD_1vyfeRQed3y6urhGewfbgX0yP6g04hGv",
+        },
+        .glslang = .{ .path = "../glslang" },
+        .spirv_tools = .{ .path = "../spirv-tools" },
+        .spirv_headers = .{ .path = "../spirv-headers" },
+        .helpers = .{ .path = "../helpers" },
+    },
+    .paths = .{ "build.zig", "build.zig.zon" },
+}
