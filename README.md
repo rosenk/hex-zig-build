@@ -177,3 +177,20 @@ against transcribe.cpp's CMake files.
 If `windows-gnu.patch` no longer applies, the build names the hunk. Remake
 it on the new sources: make the same change to `build.rs` and save
 `git diff`.
+
+## Checks
+
+`scripts/check.sh zig-out/bin/hex` reads the executable (binutils' `readelf`
+and `objdump`) and fails when it needs a glibc symbol newer than 2.27, or a
+shared library other than glibc's, `libasound.so.2` and `libxkbcommon.so.0`;
+for `hex.exe`, when it imports `vulkan-1.dll` or a MinGW runtime DLL.
+
+GitHub Actions (`.github/workflows/build.yml`) builds the three targets on
+every push, runs the check on each, loads the x86_64 Linux executable in an
+Ubuntu 18.04 container (`ldd -r`: every library found, every symbol bound),
+and keeps the executables as the run's artifacts.
+
+## License
+
+MIT, as Hex: see `LICENSE`. The executables also contain the libraries built
+under `deps/`, each under its own license.
